@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "637883291681",
+    "firebase_url": "https://gwapoclyde-8038f.firebaseio.com",
+    "project_id": "gwapoclyde-8038f",
+    "storage_bucket": "gwapoclyde-8038f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637883291681:android:503324227fe3750706eb60",
+        "android_client_info": {
+          "package_name": "Care.Here2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637883291681-qcvmkj2a4uajejulcqo49jf0ttp6k5g5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM7GsfcSHq1TwFxLqfz25OmkzmwrkQGh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637883291681-qcvmkj2a4uajejulcqo49jf0ttp6k5g5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637883291681:android:d60d06a42639225306eb60",
+        "android_client_info": {
+          "package_name": "com.example.keeping_up_with_the_baretos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637883291681-qcvmkj2a4uajejulcqo49jf0ttp6k5g5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM7GsfcSHq1TwFxLqfz25OmkzmwrkQGh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637883291681-qcvmkj2a4uajejulcqo49jf0ttp6k5g5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637883291681:android:c4ec6fc78de2748e06eb60",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637883291681-qcvmkj2a4uajejulcqo49jf0ttp6k5g5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM7GsfcSHq1TwFxLqfz25OmkzmwrkQGh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637883291681-qcvmkj2a4uajejulcqo49jf0ttp6k5g5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
