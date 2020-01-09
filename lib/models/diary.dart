@@ -2,6 +2,8 @@
 
 // Import MaterialApp and other widgets which we can use to quickly create a material app
 import 'package:flutter/material.dart';
+import 'package:login/models/todo.dart';
+import 'package:login/sqflitedb.dart';
 
 // Code written in Dart starts exectuting from the main function. runApp is part of
 // Flutter, and requires the component which will be our app's container. In Flutter,
@@ -15,20 +17,36 @@ class DiaryPage extends StatefulWidget {
 }
 
 class _DiaryPage extends State<DiaryPage> {
-  List<String> _todoItems = [];
+  List<Diary> diaryRecord = [];
   TextEditingController _ctrler = TextEditingController();
+  final db = DiaryDatabase();
 
-  void _addTodoItem(String task) {
-    // Only add the task if the user actually entered something
-    if(task.length > 0) {
-      // Putting our code inside "setState" tells the app that our state has changed, and
-      // it will automatically re-render the list
-      setState(() => _todoItems.add(task));
+  void _addTodoItem(String message) async {
+    {
+        db.addDiary(Diary(message: message));
+         setupList();
     }
   }
 
-  void _removeTodoItem(int index) {
-    setState(() => _todoItems.removeAt(index));
+  void _removeTodoItem(int index) async {
+    print(index);
+    db.removeDiary(index);
+    setupList();
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setupList();
+    
+  }
+  setupList() async {
+ 
+    var fetchdata = await db.fetchAll();
+    setState(() {
+      diaryRecord = fetchdata;
+    });
+    print(diaryRecord);
   }
 
   void _promptRemoveTodoItem(int index) {
@@ -36,7 +54,7 @@ class _DiaryPage extends State<DiaryPage> {
       context: context,
       builder: (BuildContext context) {
         return   AlertDialog(
-          title:   Text('Remove "${_todoItems[index]}"?'),
+          title:   Text('Delete this ?'),
           actions: <Widget>[
               FlatButton(
               child:   Text('No'),
@@ -48,6 +66,7 @@ class _DiaryPage extends State<DiaryPage> {
               child:   Text('Yes'),
               onPressed: () {
                 _removeTodoItem(index);
+                
                 Navigator.of(context).pop();
               }
             )
@@ -59,25 +78,21 @@ class _DiaryPage extends State<DiaryPage> {
 
   // Build the whole list of todo items
   Widget _buildTodoList() {
-    return   ListView.builder(
-      itemBuilder: (context, index) {
-        // itemBuilder will be automatically be called as many times as it takes for the
-        // list to fill up its available space, which is most likely more than the
-        // number of todo items we have. So, we need to check the index is OK.
-        if(index < _todoItems.length) {
-          return _buildTodoItem(_todoItems[index], index);
-        }
+    return ListView.builder(
+      itemCount: diaryRecord.length,
+      itemBuilder: (BuildContext context,int index){
+        return Card(child: ListTile(
+          onTap: (){
+            _promptRemoveTodoItem(diaryRecord[index].id);
+            
+          },
+          title: Text(diaryRecord[index].message),
+        ),);
       },
     );
   }
 
-  // Build a single todo item
-  Widget _buildTodoItem(String todoText, int index) {
-    return   Card(child: ListTile(
-      title:   Text(todoText),
-      onTap: () => _promptRemoveTodoItem(index)
-    ),);
-  }
+  
 
   @override
   Widget build(BuildContext context) {

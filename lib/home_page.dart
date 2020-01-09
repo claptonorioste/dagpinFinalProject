@@ -12,6 +12,7 @@ import 'package:login/agenda.dart';
 // import 'package:flutter/services.dart';
 import 'package:login/authentication.dart';
 import 'package:login/models/diary.dart';
+import 'package:login/sqflitedb.dart';
 // import 'package:login/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:login/login_page.dart';
@@ -35,14 +36,17 @@ class HomePage extends StatefulWidget {
   State<StatefulWidget> createState() => new _HomePageState();
 }
 
+
 class _HomePageState extends State<HomePage> {
  String mood = "Take assesment";
 String status = "Not yet Known";
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
      checkUserType(); 
+
     
   }
 
